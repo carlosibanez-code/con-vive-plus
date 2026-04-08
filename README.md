@@ -65,7 +65,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-
+´´´
 ## Próximas funcionalidades
 - Sistema real de reservas
 - Gestión completa del perfil de usuario
