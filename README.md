@@ -55,8 +55,8 @@ Modelo que almacena los mensajes enviados desde el formulario de contacto:
 - fecha de creación
 
 ## Instalación y ejecución 
-
 1. Clona el repositorio:
+   
 ```bash
 git clone URL_DEL_REPOSITORIO
 cd PROYECTO_REAL
@@ -65,9 +65,8 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-```
 
-## Proximas funcionalidades
+## Próximas funcionalidades
 - Sistema real de reservas
 - Gestión completa del perfil de usuario
 - Opiniones sobre propiedades
