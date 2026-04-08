@@ -1,0 +1,84 @@
+{% extends "con_vive_plus/base.html" %}
+
+{% block content %}
+    <div style="
+        max-width: 550px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <h2 style="text-align: center; color: #1f3c88; margin-bottom: 25px;">
+            Crear cuenta
+        </h2>
+
+        <p style="
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        ">
+            Regístrate para acceder a tu área privada y gestionar futuras reservas,
+            opiniones y datos personales en Con Vive Plus.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div style="margin-bottom: 18px;">
+                <label for="id_username" style="display: block; margin-bottom: 8px; font-weight: bold;">
+                    Usuario
+                </label>
+                {{ form.username }}
+            </div>
+
+            <div style="margin-bottom: 18px;">
+                <label for="id_password1" style="display: block; margin-bottom: 8px; font-weight: bold;">
+                    Contraseña
+                </label>
+                {{ form.password1 }}
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="id_password2" style="display: block; margin-bottom: 8px; font-weight: bold;">
+                    Repite la contraseña
+                </label>
+                {{ form.password2 }}
+            </div>
+
+            {% if form.errors %}
+                <div style="
+                    background-color: #fdecea;
+                    color: #b71c1c;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                ">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <div style="text-align: center;">
+                <button
+                    type="submit"
+                    style="
+                        background-color: #1f3c88;
+                        color: white;
+                        border: none;
+                        padding: 14px 28px;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    "
+                >
+                    Registrarse
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

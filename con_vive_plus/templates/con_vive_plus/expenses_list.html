@@ -1,0 +1,13 @@
+{% extends "con_vive_plus/base.html" %}
+
+{% block content %}
+    <h2>Listado de gastos</h2>
+
+    <ul>
+        {% for expense in expenses %}
+            <li>
+                {{ expense.title }} - {{ expense.amount }} $ - {{ expense.house.name }} - {{ expense.paid_by.first_name }} {{ expense.paid_by.last_name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}    

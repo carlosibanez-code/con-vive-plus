@@ -1,0 +1,119 @@
+{% extends "con_vive_plus/base.html" %}
+
+{% block content %}
+    <h2 style="margin-bottom: 20px; font-size: 32px;">Propiedades</h2>
+
+    <form method="get" style="margin-bottom: 30px;">
+        <input 
+            type="text" 
+            name="city" 
+            placeholder="Buscar por ciudad"
+            value="{{ request.GET.city }}"
+            style="
+                padding: 12px;
+                width: 280px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 16px;
+                margin-right: 10px;
+            "
+        >
+        <button 
+            type="submit"
+            style="
+                padding: 12px 20px;
+                background-color: #1f3c88;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+            "
+        >
+            Buscar
+        </button>
+    </form>
+
+    {% for house in houses %}
+        <div style="
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+            <div style="
+                display: flex;
+                gap: 30px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            ">
+                <div style="flex: 1; min-width: 320px;">
+                    {% if house.outside_image %}
+                        <img
+                            src="{{ house.outside_image.url }}"
+                            alt="Imagen exterior de {{ house.name }}"
+                            style="width: 100%; max-width: 500px; border-radius: 10px; margin-bottom: 15px;"
+                        >
+                    {% endif %}
+
+                    {% if house.inside_image %}
+                        <img
+                            src="{{ house.inside_image.url }}"
+                            alt="Imagen interior de {{ house.name }}"
+                            style="width: 100%; max-width: 500px; border-radius: 10px;"
+                        >
+                    {% endif %}
+                </div>
+
+                <div style="flex: 1; min-width: 320px;">
+                    <h3 style="margin-top: 0; font-size: 28px; color: #1f3c88;">
+                        {{ house.name }}
+                    </h3>
+
+                    <p style="font-size: 18px; margin-bottom: 10px;">
+                        <strong>Ciudad:</strong> {{ house.city }}
+                    </p>
+
+                    <p style="font-size: 18px; margin-bottom: 10px;">
+                        <strong>Precio:</strong> {{ house.price }} €/noche
+                    </p>
+
+                    <p style="font-size: 18px; margin-bottom: 10px;">
+                        <strong>Agente:</strong> {{ house.agent_name }}
+                    </p>
+
+                    <p style="font-size: 17px; margin-bottom: 10px;">
+                        <strong>Teléfono:</strong> {{ house.agent_phone }}
+                    </p>
+
+                    <p style="font-size: 17px; margin-bottom: 15px;">
+                        <strong>Email:</strong> {{ house.agent_email }}
+                    </p>
+
+                    <p style="font-size: 18px; margin-bottom: 15px;">
+                        <strong>Disponibilidad:</strong>
+                        {% if house.is_available %}
+                            <span style="color: green; font-weight: bold;">Disponible</span>
+                        {% else %}
+                            <span style="color: red; font-weight: bold;">No disponible</span>
+                        {% endif %}
+                    </p>
+
+                    <p style="font-size: 17px; line-height: 1.6; margin-bottom: 15px;">
+                        <strong>Descripción:</strong><br>
+                        {{ house.description }}
+                    </p>
+
+                    <p style="font-size: 17px; line-height: 1.6; margin-bottom: 0;">
+                        <strong>Servicios incluidos:</strong><br>
+                        {{ house.services }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p style="font-size: 18px; color: #666;">No se han encontrado propiedades para esa ciudad.</p>
+    {% endfor %}
+{% endblock %}

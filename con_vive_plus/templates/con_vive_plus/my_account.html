@@ -1,0 +1,122 @@
+{% extends "con_vive_plus/base.html" %}
+
+{% block content %}
+    <div style="
+        max-width: 1000px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 35px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <div style="text-align: center; margin-bottom: 35px;">
+            <h2 style="font-size: 36px; color: #1f3c88; margin-bottom: 15px;">
+                Mi cuenta
+            </h2>
+
+            <p style="font-size: 20px; margin-bottom: 12px;">
+                Bienvenido, <strong>{{ request.user.username }}</strong>.
+            </p>
+
+            <p style="font-size: 18px; line-height: 1.6; color: #444; max-width: 750px; margin: 0 auto;">
+                Esta es tu área privada de Con Vive Plus. Desde aquí podrás gestionar tu perfil,
+                revisar tus reservas, consultar tus opiniones y acceder a servicios exclusivos
+                para usuarios registrados.
+            </p>
+        </div>
+
+        <div style="
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        ">
+            <div style="
+                flex: 1;
+                min-width: 240px;
+                max-width: 280px;
+                background-color: #f8f9fc;
+                border: 1px solid #d9ddea;
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+            ">
+                <h3 style="color: #1f3c88; margin-bottom: 12px;">Mis reservas</h3>
+                <p style="color: #555; line-height: 1.5;">
+                    Aquí podrás consultar y gestionar tus futuras reservas premium.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold; color: #b71c1c;">
+                    Próximamente
+                </p>
+            </div>
+
+            <div style="
+                flex: 1;
+                min-width: 240px;
+                max-width: 280px;
+                background-color: #f8f9fc;
+                border: 1px solid #d9ddea;
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+            ">
+                <h3 style="color: #1f3c88; margin-bottom: 12px;">Mis opiniones</h3>
+                <p style="color: #555; line-height: 1.5;">
+                    Desde esta sección podrás revisar y publicar opiniones sobre tus estancias.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold; color: #b71c1c;">
+                    Próximamente
+                </p>
+            </div>
+
+            <div style="
+                flex: 1;
+                min-width: 240px;
+                max-width: 280px;
+                background-color: #f8f9fc;
+                border: 1px solid #d9ddea;
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+            ">
+                <h3 style="color: #1f3c88; margin-bottom: 12px;">Mis datos</h3>
+                <p style="color: #555; line-height: 1.5;">
+                    Aquí podrás editar tu información personal y tus datos de contacto.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold; color: #b71c1c;">
+                    Próximamente
+                </p>
+            </div>
+        </div>
+
+        <div style="
+            text-align: center;
+            background-color: #fff8e1;
+            border: 1px solid #f0d98a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 25px;
+            color: #7a5a00;
+            font-weight: bold;
+        ">
+            Área privada en desarrollo. Nuevas funcionalidades disponibles próximamente.
+        </div>
+
+        <div style="text-align: center;">
+            <a href="{% url 'logout' %}" style="
+                display: inline-block;
+                background-color: #b71c1c;
+                color: white;
+                text-decoration: none;
+                padding: 14px 28px;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: bold;
+            ">
+                Cerrar sesión
+            </a>
+        </div>
+    </div>
+{% endblock %}
